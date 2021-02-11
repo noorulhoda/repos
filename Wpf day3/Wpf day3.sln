@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rotatedButtons", "rotatedButtons.csproj", "{CD963467-0ADE-491B-BAA7-44C6058D3941}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "animated texts", "..\animated texts\animated texts.csproj", "{7C6B1EB7-42F1-48E5-8C3A-405BB25A681D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "format2", "..\format2\format2.csproj", "{8D2C8836-DF8D-42C0-9B13-5BDBC80E284D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD963467-0ADE-491B-BAA7-44C6058D3941}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD963467-0ADE-491B-BAA7-44C6058D3941}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD963467-0ADE-491B-BAA7-44C6058D3941}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD963467-0ADE-491B-BAA7-44C6058D3941}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C6B1EB7-42F1-48E5-8C3A-405BB25A681D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C6B1EB7-42F1-48E5-8C3A-405BB25A681D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C6B1EB7-42F1-48E5-8C3A-405BB25A681D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C6B1EB7-42F1-48E5-8C3A-405BB25A681D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D2C8836-DF8D-42C0-9B13-5BDBC80E284D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D2C8836-DF8D-42C0-9B13-5BDBC80E284D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D2C8836-DF8D-42C0-9B13-5BDBC80E284D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D2C8836-DF8D-42C0-9B13-5BDBC80E284D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA627571-6848-4BA5-80A7-DFAA28F420A5}
+	EndGlobalSection
+EndGlobal
