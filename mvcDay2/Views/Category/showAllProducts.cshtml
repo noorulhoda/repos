@@ -1,0 +1,28 @@
+﻿@using mvcDay2.Models
+@model CategoriesType
+
+@{
+    ViewBag.Title = "showAllProducts";
+}
+<h2>@Model.CategoryName </h2>
+@foreach (var i in @Model.Products)
+{
+    <div class="panel panel-success" style="width: 18rem;">
+        <div class="panel-title">
+            <a href="/Product/showDetails/@i.Id" class="panel-heading">
+               @i.Name
+            </a>
+        </div>
+        <div class="panel-body">
+            <img class="card-img-top" style="width:150px;height:150px" src="~/Content/@i.image" alt="Card image cap">
+            Price    :@i.Price<br />
+            Quantuty :@i.Quantity<br />
+            <a href="/Product/EditProduct/@i.Id" class="panel-heading">Edit</a>
+            <a href="/Product/DeleteProduct/@i.Id" class="panel-heading">Delete</a>
+        </div>
+
+    </div>
+
+}
+
+

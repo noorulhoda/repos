@@ -1,0 +1,47 @@
+﻿@page "/Employee";
+
+
+<div class="container">
+    <h2>Employees</h2>
+
+    <select @bind="neededDeptID" >
+        @foreach (var d in sampleData.Departments)
+        {
+            <option value="@d.id" >@d.name</option>
+        }
+    </select>
+
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>salary</th>
+                <th>deptID</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var e in sampleData.Employes)
+            {
+                if (e.DeptID == neededDeptID)
+                {
+                    <tr>
+                        <td>@e.id</td>
+                        <td>@e.name</td>
+                        <td>@e.salary</td>
+                        <td>@e.DeptID</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+@code {
+    public int neededDeptID { get; set; }
+    public List<Employe> emps { get; set; } = sampleData.Employes;
+    public List<Department> depts { get; set; } = sampleData.Departments;
+
+}

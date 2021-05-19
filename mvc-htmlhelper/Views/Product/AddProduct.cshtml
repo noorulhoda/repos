@@ -1,0 +1,45 @@
+﻿@using mvcDay2.Models
+@model Products
+@{
+    ViewBag.Title = "AddProduct";
+    SelectList ctgs = new SelectList((List<CategoriesType>)TempData.Peek("categories"), "Id", "CategoryName");
+}
+
+<h2>AddProduct</h2>
+
+@using (Html.BeginForm("AddProduct", "Product", FormMethod.Post, new
+{ enctype = "multipart/form-data", @class = "input-group input-group-lg" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true);
+
+    <input type="file" name="file" />
+    <br />
+    <br />
+    @Html.EditorFor(m => m.Name, new { htmlAttributes = new { @class = "form-control", placeholder = "Name" } })
+    @Html.ValidationMessageFor(m => m.Name, null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.EditorFor(m => m.Quantity, new { htmlAttributes = new { @class = "form-control", placeholder = "Quantity" } })
+    @Html.ValidationMessageFor(m => m.Quantity, null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.EditorFor(m => m.Price, new { htmlAttributes = new { @class = "form-control", placeholder = "Price" } })
+    @Html.ValidationMessageFor(m => m.Price, null, new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.EditorFor(m => m.Description, new { htmlAttributes = new { @class = "form-control", placeholder = "Description" } })
+    @Html.ValidationMessageFor(m => m.Description, null, new { @class = "text-danger" })
+    <br />
+    <br />
+    //??
+
+    @Html.DropDownListFor(m => m.CategoryId, ctgs);
+    <input type="submit" value="Add" class="btn btn-default">
+}
+
+@*client side validation*@
+@section JQval
+        {
+    @Scripts.Render("~/bundles/jqueryval")
+}

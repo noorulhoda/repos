@@ -1,0 +1,22 @@
+﻿@using mvcDay2.Models
+@{
+    ViewBag.Title = "AddProduct";
+}
+
+<h2>AddProduct</h2>
+
+<form enctype="multipart/form-data" method="post" class="input-group input-group-lg">
+    <input type="file" name="file" /><br />
+    <input type="text" class="form-control" placeholder="Categoryname" name="Name" aria-describedby="sizing-addon1"><br />
+    <input type="text" class="form-control" placeholder="Quantity" name="Quantity" aria-describedby="sizing-addon1"><br />
+    <input type="text" class="form-control" placeholder="Price" name="Price" aria-describedby="sizing-addon1"><br />
+    <textarea type="text" class="form-control" placeholder="Description" name="Description" aria-describedby="sizing-addon1"></textarea><br /><br />
+    <select name="CategoryId">
+        @foreach (var i in ((List<CategoriesType>)TempData.Peek("categories")))
+       
+        {
+             <option value="@i.Id">@i.CategoryName</option>
+        }
+    </select>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>

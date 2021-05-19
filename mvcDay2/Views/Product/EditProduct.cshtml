@@ -1,0 +1,31 @@
+﻿@using mvcDay2.Models;
+@model Products
+
+@{
+    ViewBag.Title = "EditProduct";
+}
+
+<h2>EditProduct</h2>
+
+<form enctype="multipart/form-data" method="post" class="input-group input-group-lg">
+    <img style="width:50px;height:70px" src="~/Content/@Model.image" /><br />
+    <input type="file" name="file"/><br />
+    <input type="text" class="form-control" placeholder="Categoryname"value="@Model.Name" name="Name" aria-describedby="sizing-addon1"><br />
+    <input type="text" class="form-control" placeholder="Color" value="@Model.Color" name="Color" aria-describedby="sizing-addon1"><br />
+    <input type="text" class="form-control" placeholder="Description" value="@Model.Description" name="Description" aria-describedby="sizing-addon1"><br /><br />
+    <select name="CategoryId">
+       @foreach (var i in ViewBag.categories)
+       {
+           if (i.Id == Model.CategoryId)
+           {
+               <option value="@i.Id" selected="selected">@i.CategoryName</option>
+           }
+           else 
+           {
+            <option value="@i.Id">@i.CategoryName</option>   
+           } 
+
+       }
+    </select>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>

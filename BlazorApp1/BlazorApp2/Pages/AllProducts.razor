@@ -1,0 +1,60 @@
+﻿@page "/products"
+@inject ProductService productService;
+@inject CategoryService categoryService;
+
+
+
+<div class="container">
+    <h2>Products</h2>
+
+    <select @bind="neededCatID">
+        @foreach (var d in categories)
+        {
+            <option value="@d.id">@d.name</option>
+        }
+    </select>
+
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>price</th>
+                <th>categoryID</th>
+                <th>details</th>
+                <th>edit </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var p in products)
+            {
+                if (p.CategoryID== neededCatID)
+                {
+            <tr>
+                <td>@p.id</td>
+                <td>@p.name</td>
+                <td>@p.price</td>
+                <td>@p.CategoryID</td>
+                <td><a href="/products/details/@p.id">details</a></td>
+                <td><a href="/products/edit/@p.id">edit</a></td>
+            </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+
+@code {
+    public int neededCatID { get; set; }
+    public List<Product> products { get; set; }
+    public List<Category> categories { get; set; }
+
+    protected override Task OnInitializedAsync()
+    {
+        products = productService.getAll();
+        categories = categoryService.getAll();
+        return base.OnInitializedAsync();
+    }
+
+}

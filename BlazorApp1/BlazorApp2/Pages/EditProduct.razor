@@ -1,0 +1,44 @@
+﻿@page "/products/edit/{id:int}"
+@inject ProductService productService;
+@inject CategoryService categoryService;
+<h3>EditProduct</h3>
+
+<EditForm Model="product" OnSubmit="save">
+    <div>
+        <InputText @bind-Value="product.name" placeholder="Name" class="form-control" />
+    </div>
+    <div>
+        <InputNumber @bind-Value="product.price" placeholder="price" class="form-control" />
+    </div>
+    <div>
+        <InputSelect @bind-Value="product.CategoryID" placeholder="category" class="form-control">
+            @foreach (var c in categories)
+            {
+                <option value="@c.id">@c.name</option>
+            }
+        </InputSelect>
+    </div>
+    <button type="submit">save</button>
+</EditForm>
+
+@code {
+    [Parameter]
+    public int id { set; get; }
+
+    public Product product { set; get; }
+    public List<Category> categories { get; set; }
+
+
+    protected override Task OnInitializedAsync()
+    {
+        product = productService.getById(id);
+        categories = categoryService.getAll();
+        Console.WriteLine(id);
+        return base.OnInitializedAsync();
+    }
+
+    public void save()
+    {
+        Console.WriteLine("saved successfully");
+    }
+}

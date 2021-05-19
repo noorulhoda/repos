@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+<div style="color:red">
+    <ul>
+        <li>@ViewBag.msgError</li>
+        @if (ViewBag.Errors != null)
+        {
+            foreach (var item in ViewBag.Errors)
+            {
+                <li>@item</li>
+            }
+        }
+    </ul>
+</div>
+@using (Html.BeginForm())
+{
+    @Html.Label("Role Name")
+    @Html.Editor("RoleName")
+    <input type="submit" value="Creat role" />
+}
+
+
